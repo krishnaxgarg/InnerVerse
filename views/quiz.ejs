@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Awareness</title>
+    <style>
+      /* General Styling */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      /* Content Container Styling */
+      .content-container {
+        max-width: 600px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 40px;
+        text-align: center;
+      }
+
+      /* Header Styling */
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 20px;
+        border-radius: 5px 5px 0 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Questionnaire Styling */
+      table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      td:first-child {
+        font-weight: bold;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+
+      /* Diagnosis Styling */
+      #diagnosis {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+      }
+
+      /* Consultation Prompt Styling */
+      #consultation-prompt {
+        margin-top: 20px;
+        text-align: center;
+        display: none; /* Initially hidden */
+      }
+
+      #consultation-prompt button {
+        margin: 0 10px;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #consultExpert {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      #consultExpert:hover {
+        background-color: #3e8e41;
+      }
+
+      #declineConsult {
+        background-color: #ddd;
+        color: #333;
+      }
+
+      #declineConsult:hover {
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content-container">
+      <header>
+        <h1>Mental Health Awareness</h1>
+      </header>
+      <h2>PHQ-9 Self-Diagnosis Questionnaire</h2>
+      <p>
+        This questionnaire is based on the PHQ-9 (Patient Health
+        Questionnaire-9) and is designed to help you assess your mental health.
+        Please answer the following questions honestly.
+      </p>
+      <form id="phq9-form">
+        <table>
+          <tr>
+            <th colspan="2">
+              <strong
+                >Over the last 2 weeks, how often have you been bothered by any
+                of the following problems?</strong
+              >
+            </th>
+          </tr>
+          <tr>
+            <td>1. Little interest or pleasure in doing things</td>
+            <td>
+              <select name="question1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>2. Feeling down, depressed, or hopeless</td>
+            <td>
+              <select name="question1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>3. Trouble falling or staying asleep, or sleeping too much</td>
+            <td>
+              <select name="question1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>4. Feeling tired or having little energy</td>
+            <td>
+              <select name="question1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>5. Poor appetite or overeating</td>
+            <td>
+              <select name="question1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              6. Feeling bad about yourself or that you are a failure or have
+              let yourself or your family down
+            </td>
+            <td>
+              <select name="question1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              7. Trouble concentrating on things, such as reading the newspaper
+              or watching television
+            </td>
+            <td>
+              <select name="question1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              8. Moving or speaking so slowly that other people could have
+              noticed. Or the opposite being so figety or restless that you have
+              been moving around a lot more than usual
+            </td>
+            <td>
+              <select name="question1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              9. Thoughts that you would be better off dead, or of hurting
+              yourself
+            </td>
+            <td>
+              <select name="question1">
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <input type="submit" value="Submit" />
+      </form>
+      <div id="diagnosis"></div>
+      <div id="consultation-prompt">
+        <p>Would you like to consult an expert for further guidance?</p>
+        <a href="/therapyAdults" id="consultExpert"> Yes, consult an expert </a>
+        <button id="declineConsult">No, thank you</button>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("phq9-form");
+      const diagnosisDiv = document.getElementById("diagnosis");
+      const consultationPrompt = document.getElementById("consultation-prompt");
+      const consultExpertBtn = document.getElementById("consultExpert");
+      const declineConsultBtn = document.getElementById("declineConsult");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const responses = Array.from(formData.values());
+        const totalScore = responses.reduce(
+          (total, curr) => total + parseInt(curr),
+          0
+        );
+        let diagnosis;
+
+        if (totalScore >= 0 && totalScore <= 4) {
+          diagnosis = "Minimal or no depression";
+        } else if (totalScore >= 5 && totalScore <= 9) {
+          diagnosis = "Mild depression";
+        } else if (totalScore >= 10 && totalScore <= 14) {
+          diagnosis = "Moderate depression";
+        } else if (totalScore >= 15 && totalScore <= 19) {
+          diagnosis = "Moderately severe depression";
+        } else {
+          diagnosis = "Severe depression";
+        }
+
+        diagnosisDiv.innerHTML = `<p><strong>Your diagnosis:</strong> ${diagnosis}</p>`;
+        consultationPrompt.style.display = "block"; // Show the consultation prompt
+      });
+
+      consultExpertBtn.addEventListener("click", () => {
+        // Add code to redirect to an expert consultation page or open a chat window
+        alert("You will now be redirected to an expert consultation page.");
+      });
+
+      declineConsultBtn.addEventListener("click", () => {
+        consultationPrompt.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
